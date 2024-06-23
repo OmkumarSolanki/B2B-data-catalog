@@ -2,13 +2,14 @@ const express = require('express');
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 
 connectDB();
 
 const corsOptions = {
-    origin: "http://localhost:3000", // replace with the actual origin of your frontend
+    origin: process.env.FRONTEND, // replace with the actual origin of your frontend
     credentials: true,
   };
 
