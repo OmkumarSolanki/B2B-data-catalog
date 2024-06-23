@@ -104,14 +104,8 @@ function Register() {
       await authService.register(user);
       navigate("/"); // Redirect to login page after successful registration
     } catch (error) {
-      if (error.response.data.result == 'User already exists') {
-        setErrorMessage("User already exists.");
-      }
-      else {
-        setErrorMessage("Registration failed. Please try again.");
-      }
+      setErrorMessage("Registration failed. Please try again.");
     }
-
   };
 
   const handleSubmit = async (e) => {
