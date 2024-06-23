@@ -23,11 +23,11 @@ function Register() {
   useEffect(() => {
     setIsRegisterDisabled(
       emailErrorMessage ||
-        fullNameErrorMessage ||
-        passwordErrorMessage ||
-        !email ||
-        !password ||
-        !username 
+      fullNameErrorMessage ||
+      passwordErrorMessage ||
+      !email ||
+      !password ||
+      !username
     );
   }, [
     emailErrorMessage,
@@ -42,18 +42,18 @@ function Register() {
   const validateFullName = (input) => {
     var regExFullName = /^[A-Za-z ]{3,}$/;
     var returnVal = false;
-    if (input.trim().length < 1){
+    if (input.trim().length < 1) {
       setFullNameErrorMessage("Name should not empty")
       returnVal = false;
     }
-    else if (input.trim().length < 3){
+    else if (input.trim().length < 3) {
       setFullNameErrorMessage("Enter valid Name with minimum of three characters");
       returnVal = false;
     }
     else if (!input.trim().match(regExFullName)) {
       setFullNameErrorMessage("Name should contain only letters and spaces");
       returnVal = false;
-    } 
+    }
     else {
       setFullNameErrorMessage("");
       returnVal = true;
@@ -76,11 +76,11 @@ function Register() {
   const validatePassword = (input) => {
     var returnVal = false;
     var regExPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (input.trim().length < 1){
+    if (input.trim().length < 1) {
       setPasswordErrorMessage("Password should not be empty!");
       returnVal = false;
     }
-    else if (input.trim().length < 8){
+    else if (input.trim().length < 8) {
       setPasswordErrorMessage("Password should be at least 8 characters long!");
       returnVal = false;
     }
@@ -94,24 +94,29 @@ function Register() {
     }
     return returnVal;
   };
-  
+
 
   const onRegister = async (e) => {
     e.preventDefault();
     try {
       const user = { username, email, password };
-      console.log(user);
+      // console.log(user);
       await authService.register(user);
       navigate("/"); // Redirect to login page after successful registration
     } catch (error) {
-      setErrorMessage("Registration failed. Please try again.");
+      if (error.response.data.result == 'User already exists') {
+        setErrorMessage("User already exists.");
+      }
+      else {
+        setErrorMessage("Registration failed. Please try again.");
+      }
     }
-    
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      onRegister(e);
+    onRegister(e);
   };
 
   const navigateToLogin = () => {
@@ -181,7 +186,7 @@ function Register() {
                 </div>
               )}
             </div>
-    
+
             <div className="form-floating mb-3 login-container-3">
               <button
                 type="submit"
