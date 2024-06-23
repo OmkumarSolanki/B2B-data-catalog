@@ -8,7 +8,7 @@
     - Install dependencies: `npm install`
     - Create a `.env` file in `backend` with:
       ```
-      MONGODB_URL="mongodb+srv://solankio:bvzxqa8FufeskAmt@cluster0.pls8tzd.mongodb.net/b2b"
+      MONGODB_URL="Enter Your Mongo DB URL"
       PORT=4500
       FRONTEND="http://localhost:3000"
       ```
