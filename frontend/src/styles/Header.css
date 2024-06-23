@@ -1,0 +1,23 @@
+.logo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo2 {
+    padding-left: 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.SearchContainer {
+    margin-left: 10px;
+}
+
+.logout {
+    margin-right: 10px;
+}

@@ -1,0 +1,23 @@
+.search-container {
+  margin: 2% 20%;
+  padding: 1% 10%;
+  border-radius: 1rem;
+  border: 1px solid;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-grid .card {
+  flex: 1 0 21%;
+  margin: 10px;
+}
+
+.search-container .form-group {
+  margin-bottom: 15px;
+}
+.product-details {
+  margin: 2% 20%;
+}
